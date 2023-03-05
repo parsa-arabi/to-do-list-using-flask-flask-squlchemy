@@ -1,0 +1,22 @@
+{%extends'base.html'%}
+{%block content%}
+
+<head>
+    <title>profile</title>
+</head>
+<body>
+<div class="main">
+    <center>
+        <img src="/static/{{image.image}}" id="profile_img"><br>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <hr>
+            <input type="text" placeholder="نام شما" class="un" value="{{data.username}}" name="username">
+            <input type="password" placeholder="رمز" class="pass" name="password" value="{{data.password}}">
+            <input type="password" placeholder="تکرار رمز" class="pass" name="re_password" value="{{data.password}}"><br>
+    </center>
+    <input type="submit" value="sum" class="btn btn-dark">
+    <a class="btn btn-dark" href="/login">ثبت</a>
+    </form>
+</div>
+{%endblock%}

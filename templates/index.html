@@ -1,0 +1,49 @@
+{%extends'base.html'%}
+{%block content%}
+
+<br>
+<div class="container">
+    <div class="grad">
+        <img src="/static/{{data.image}}" id="index_img">
+        <h3 align="right">سلام{{user}}.</h3>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>موضوع</th>
+                <th>تاریخ</th>
+                <th>زمان</th>
+                <th>زمان ثبت</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for d in subject:%}
+            {%if d.author.username==user:%}
+            <tr>
+                <td>
+                    {{d.subject}}
+                </td>
+                <td>
+                    {{d.date}}
+                </td>
+                <td>
+                    {{d.time}}
+                </td>
+                <td>
+                    {{d.t}}
+                </td>
+                <td>
+                    <a href="{{url_for('delete',post_id=d.id)}}" class="btn btn-danger" style="float: right;">انجام شد</a>
+                    <a href="{{url_for('show_details',post_id=d.id)}}" class="btn btn-dark" style="float: right;">جزئیات</a>
+                    <a href="{{url_for('edit_Do',post_id=d.id)}}" class="btn btn-info" style="float: right;">ویرایش</a>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <a href="/add" type="button" class="btn btn-dark">اضافه کردن</a>
+</div>
+{%endblock%}

@@ -1,0 +1,14 @@
+{%extends'base.html'%}
+{%block content%}
+<center>
+    {%if user:%}
+    <a class="btn btn-success" href="/add">اضافه کردن</a>
+    <a class="btn btn-danger" href="/logout">خروج از حساب </a>
+    <a class="btn btn-info" href="/prof">پروفایل</a>
+    {%endif%}
+    {%if not user:%}
+    <a class="btn btn-success" href="/register">عضویت </a>
+    <a class="btn btn-danger" href="/login">ورود </a>
+    {%endif%}
+</center>
+{%endblock%}
